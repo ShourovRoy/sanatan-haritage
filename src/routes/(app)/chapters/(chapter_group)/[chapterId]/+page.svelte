@@ -8,6 +8,7 @@
 <div class="p-4">
   {#await data.chapterDetails}
     <!-- promise is pending -->
+     The chapter summery is loading
   {:then chapterDetails}
     <!-- promise was fulfilled -->
     <h4 class="text-center text-4xl font-extrabold">

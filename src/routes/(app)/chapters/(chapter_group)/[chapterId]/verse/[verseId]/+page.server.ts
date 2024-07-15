@@ -9,9 +9,6 @@ export const load: PageServerLoad = async ({params, fetch, isDataRequest}) => {
     }).then(res => res.json())
 
 
-  
-
-
     return {
         verseDetailsPromise: isDataRequest? verseDetailsPromise : await verseDetailsPromise
     }
