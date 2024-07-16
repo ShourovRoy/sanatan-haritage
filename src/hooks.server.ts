@@ -47,9 +47,9 @@ const authGuardHandler: Handle = async ({event, resolve}) => {
 
     const pathIdentifier = event.url.pathname;
     
-    // if (pathIdentifier.includes("/chapters") && ( !event.locals.user)){
-    //     return redirect(303, "/auth/login")
-    // }
+    if (pathIdentifier.includes("/chapters") && ( !event.locals.user)){
+        return redirect(303, "/auth/login")
+    }
 
 
     if (pathIdentifier.includes("/auth/login") && event.locals.user  ){
