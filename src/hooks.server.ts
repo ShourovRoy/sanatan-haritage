@@ -2,7 +2,7 @@ import { redirect, type Handle } from "@sveltejs/kit";
 import { sequence } from "@sveltejs/kit/hooks";
 import { createServerClient } from '@supabase/ssr'
 import { SUPABASE_ANON_KEY, SUPABASE_URL } from "$env/static/private";
-import type { Session, SupabaseClient } from "@supabase/supabase-js";
+import type { SupabaseClient } from "@supabase/supabase-js";
 
 
 export const supabaseHandle: Handle = async ({event, resolve}) => {
@@ -47,9 +47,9 @@ const authGuardHandler: Handle = async ({event, resolve}) => {
 
     const pathIdentifier = event.url.pathname;
     
-    if (pathIdentifier.includes("/chapters") && ( !event.locals.user)){
-        return redirect(303, "/auth/login")
-    }
+    // if (pathIdentifier.includes("/chapters") && ( !event.locals.user)){
+    //     return redirect(303, "/auth/login")
+    // }
 
 
     if (pathIdentifier.includes("/auth/login") && event.locals.user  ){
