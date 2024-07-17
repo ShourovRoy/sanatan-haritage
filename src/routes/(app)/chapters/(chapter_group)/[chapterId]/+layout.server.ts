@@ -16,6 +16,6 @@ export const load: LayoutServerLoad = async ({fetch, params, isDataRequest}) => 
 
 
     return {
-        versesList: isDataRequest? versesList : await versesList
+        versesList: isDataRequest? versesList :  versesList
     }
 };

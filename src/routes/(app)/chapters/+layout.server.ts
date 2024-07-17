@@ -12,7 +12,7 @@ export const load = async ({fetch, isDataRequest, locals}) => {
 
 
     return {
-        gitaChapters: isDataRequest ? gitaChapterRes : await gitaChapterRes
+        gitaChapters: isDataRequest ? gitaChapterRes :  gitaChapterRes
     
     }
 
