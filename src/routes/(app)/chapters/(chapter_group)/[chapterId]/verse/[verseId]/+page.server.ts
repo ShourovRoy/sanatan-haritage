@@ -10,7 +10,7 @@ export const load: PageServerLoad = async ({params, fetch, isDataRequest}) => {
 
 
     return {
-        verseDetailsPromise: isDataRequest? verseDetailsPromise :  verseDetailsPromise
+        verseDetailsPromise: isDataRequest? verseDetailsPromise : await verseDetailsPromise
     }
 };
 
