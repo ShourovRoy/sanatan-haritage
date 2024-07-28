@@ -10,10 +10,10 @@
     <a href="/" class="text-lg">Sanatan Haritage</a>
     <a href="/">Home</a>
     <a href="/about">About</a>
+    <a href="/chapters">Chapters</a>
 
     {#if user}
       <!-- content here -->
-      <a href="/chapters">Chapters</a>
       <form use:enhance action="/auth/logout?/logoutMethod" method="post">
         <button type="submit">Logout</button>
       </form>
