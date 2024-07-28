@@ -15,6 +15,6 @@ export const load: PageServerLoad = async ({params, fetch, isDataRequest}) => {
     }).then(res => res.json())
     
     return {
-        chapterDetails: isDataRequest ? chapterDetails :  chapterDetails
+        chapterDetails: isDataRequest ? chapterDetails : await  chapterDetails
     }
 };
