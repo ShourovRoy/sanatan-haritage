@@ -31,37 +31,37 @@ export const supabaseHandle: Handle = async ({event, resolve}) => {
 const authGuardHandler: Handle = async ({event, resolve}) => {
 
     // get supabase client
-    // const supabaseClient: SupabaseClient = event.locals.supabaseClient;
+    const supabaseClient: SupabaseClient = event.locals.supabaseClient;
     
-    // // get user session
-    // const {data, error} = await supabaseClient.auth.getUser();
-    // if (error) {
-    //     event.locals.session = null
-    //     event.locals.user = null
-    // }
+    // get user session
+    const {data, error} = await supabaseClient.auth.getUser();
+    if (error) {
+        event.locals.session = null
+        event.locals.user = null
+    }
     
-    // if (data) {
-    //     // event.locals.session = data.session
-    //     event.locals.user = data.user
-    // }
+    if (data) {
+        // event.locals.session = data.session
+        event.locals.user = data.user
+    }
 
-    // const pathIdentifier = event.url.pathname;
+    const pathIdentifier = event.url.pathname;
     
-    // if (pathIdentifier.includes("/chapters") && ( !event.locals.user)){
-    //     return redirect(303, "/auth/login")
-    // }
+    if (pathIdentifier.includes("/chapters") && ( !event.locals.user)){
+        return redirect(303, "/auth/login")
+    }
 
 
-    // if (pathIdentifier.includes("/auth/login") && event.locals.user  ){
-    //     return redirect(303, "/chapters")
-    // }
-    // if (pathIdentifier.includes("/auth/signup") && event.locals.user  ){
-    //     return redirect(303, "/chapters")
-    // }
+    if (pathIdentifier.includes("/auth/login") && event.locals.user  ){
+        return redirect(303, "/chapters")
+    }
+    if (pathIdentifier.includes("/auth/signup") && event.locals.user  ){
+        return redirect(303, "/chapters")
+    }
 
-    // if (event.request.method.toUpperCase() === "GET" && pathIdentifier.includes("/auth/logout") && event.locals.user) {
-    //     return redirect(303, "/chapters")
-    // }
+    if (event.request.method.toUpperCase() === "GET" && pathIdentifier.includes("/auth/logout") && event.locals.user) {
+        return redirect(303, "/chapters")
+    }
 
     return resolve(event)
 }
